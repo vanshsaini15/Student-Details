@@ -63,7 +63,7 @@ function App() {
         data.email.toLowerCase().includes(state.search.toLowerCase()) ||
         (data.company.toLowerCase().includes(state.search.toLowerCase()) &&
           data.tags.find((e) =>
-            e.toLocaleLowerCase().includes(tag.toLocaleLowerCase())
+            e.toLowerCase().includes(tag.toLowerCase())
           ))
       ) {
         return data;
