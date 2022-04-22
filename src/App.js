@@ -58,13 +58,12 @@ function App() {
       if (state.search === "" && tag === "") {
         return data;
       } else if (
-        data.firstName.toLowerCase().includes(state.search.toLowerCase()) ||
-        data.lastName.toLowerCase().includes(state.search.toLowerCase()) ||
-        data.email.toLowerCase().includes(state.search.toLowerCase()) ||
-        (data.company.toLowerCase().includes(state.search.toLowerCase()) &&
-          data.tags.find((e) =>
-            e.toLowerCase().includes(tag.toLowerCase())
-          ))
+        (data.firstName.toLowerCase().includes(state.search.toLowerCase()) ||
+          data.lastName.toLowerCase().includes(state.search.toLowerCase()) ||
+          data.email.toLowerCase().includes(state.search.toLowerCase()) ||
+          data.company.toLowerCase().includes(state.search.toLowerCase())) &&
+        (!tag ||
+          data.tags.find((e) => e.toLowerCase().includes(tag.toLowerCase())))
       ) {
         return data;
       }
